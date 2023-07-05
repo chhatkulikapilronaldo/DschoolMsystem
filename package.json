@@ -1,0 +1,34 @@
+{
+  "name": "lschoolmsystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll --coverage test/modules/index.test.js",
+    "start": "node server/server.js",
+    "generate:migration": "npx sequelize-cli migration:generate --name",
+    "migrate:pre": "node server/scripts/create_database.js",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo --name",
+    "migrate:undo:all": "npx sequelize-cli db:migrate:undo:all",
+    "generate:seed": "npx sequelize-cli seed:generate --name",
+    "seed": "npx sequelize-cli db:seed --seed",
+    "seed:all": "npx sequelize-cli db:seed:all",
+    "seed:undo:all": "npx sequelize-cli db:seed:undo:all",
+    "pull:all": "git pull origin develop && git pull origin testing && npm pull origin staging"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0",
+    "jsonwebtoken": "^9.0.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.2.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
+  }
+}
